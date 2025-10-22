@@ -1,0 +1,652 @@
+/* ===== HERO SECTION STYLES - SPLIT-SCREEN RESPONSIVO ===== */
+
+/* Variáveis CSS otimizadas para o Hero */
+:root {
+ /* Cores do Hero - Paleta refinada */
+  /* Cores do Hero - Paleta refinada */
+  --hero-primary-color: #fff;           /* Vermelho vibrante - energia e ação */
+  --hero-primary-hover: #fff;           /* Vermelho mais intenso no hover */
+  --hero-secondary-color: #e4a216;         /* Amarelo dourado - destaque e motivação */
+  --hero-secondary-hover: #E6C230;         /* Dourado mais quente no hover */
+  --hero-accent-color: #50c8ff;            /* Verde água - frescor e saúde */
+
+  --hero-text-primary: #fff;            /* Texto principal - forte contraste */
+  --hero-text-secondary: #4A4A4A;          /* Texto secundário - suave contraste */
+  --hero-text-tertiary: #ffffffed;           /* Texto sobre fundo escuro */
+  --hero-text-highlight: #fff;          /* Destaques em vermelho energético */
+
+  --hero-bg-primary: #3f6fd3;              /* Fundo neutro claro */
+  --hero-badge-bg: #fff;                /* Fundo do badge - destaque */
+  --hero-badge-text: #3f6fd3;              /* Texto do badge */
+
+  /* Gradientes modernos e chamativos */
+  --home-text-gradient: linear-gradient(135deg, #fff 0%, #fff 100%);
+  --hero-btn-gradient: linear-gradient(90deg, #fff 0%, #fff 100%);
+  --hero-shadow-gradient: linear-gradient(135deg, rgba(255, 107, 107, 0.2) 0%, rgba(229, 90, 90, 0.1) 100%);
+
+  /* Sombras e efeitos sutis */
+  --hero-shadow-light: 0 4px 20px rgba(255, 107, 107, 0.15);
+  --hero-shadow-medium: 0 8px 30px rgba(255, 107, 107, 0.2);
+  --hero-shadow-heavy: 0 12px 40px rgba(229, 90, 90, 0.25);
+  
+  
+  /* Tipografia responsiva otimizada */
+  --font-family: "Poppins", sans-serif;
+  --hero-title-size: clamp(2rem, 4vw + 1rem, 4rem);
+  --hero-btn-font-size: clamp(0.95rem, 2vw, 1.1rem);
+  --hero-description-size: clamp(1rem, 2vw + 0.5rem, 1.25rem);
+  --hero-badge-size: clamp(0.8rem, 1.5vw + 0.5rem, 0.95rem);
+
+  --hero-description-weight: 400;
+  --hero-title-weight: 700;
+  --hero-title-line-height: clamp(1.1, 1.15, 1.2);
+  --hero-description-line-height: clamp(1.5, 1.6, 1.7);
+  
+  /* Espaçamentos fluidos otimizados */
+  --hero-container-max-width: 100%;
+  --hero-padding-y: clamp(3rem, 10vh, 8rem);
+  --hero-padding-x: clamp(1.5rem, 5vw, 4rem);
+  --hero-gap: 0;
+  --hero-content-gap: clamp(1.5rem, 4vw, 3rem);
+  
+  /* Botões responsivos melhorados */
+  --hero-btn-padding: clamp(0.875rem, 2.5vw, 1.25rem) clamp(2rem, 5vw, 3rem);
+  --hero-btn-border-radius: 2px;
+  --hero-btn-font-weight: 600;
+  --hero-btn-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Badge otimizado */
+  --hero-badge-padding: clamp(0.5rem, 1.5vw, 0.75rem) clamp(1rem, 2.5vw, 1.5rem);
+  --hero-badge-border-radius: 50px;
+
+}
+
+/* ===== HERO MAIN CONTAINER - SPLIT-SCREEN ===== */
+.hero {
+  position: relative;
+  min-height: calc(100vh - var(--header-height));
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  overflow: hidden;
+  padding: 0;
+  margin-top: 0;
+  font-family: var(--font-family);
+  color: var(--hero-text-primary);
+  background-color: var(--hero-bg-primary);
+}
+
+/* Ajuste para mobile */
+@media (max-width: 768px) {
+  .hero {
+    min-height: calc(100vh - var(--header-height-mobile));
+    flex-direction: column;
+  }
+}
+
+/* Container principal - Split-screen layout */
+.hero__container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+  gap: 0;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  min-height: calc(100vh - var(--header-height));
+  
+  /* Transição suave para mudanças de layout */
+  transition: grid-template-columns 0.3s ease;
+}
+
+/* ===== CONTEÚDO TEXTUAL - LADO ESQUERDO ===== */
+.hero__content {
+  /* Layout */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: var(--hero-content-gap);
+  
+  /* Fundo e padding */
+  background: var(--hero-bg-primary); 
+  padding: var(--hero-padding-y) var(--hero-padding-x);
+  
+  /* Alinhamento à esquerda */
+  text-align: left;
+  
+  /* Posicionamento */
+  position: relative;
+  z-index: 2;
+}
+
+/* Efeito de sobreposição sutil no conteúdo */
+.hero__content::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 50%, rgba(198, 20, 20, 0.08), transparent 60%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Garantir que o conteúdo fique acima do overlay */
+.hero__content > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Badge superior */
+.hero__badge {
+  /* Layout */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.5rem, 1vw, 0.75rem);
+  width: fit-content;
+  
+  /* Visual */
+  background: none; /* remove o fundo */
+  color: var(--hero-secondary-color); /* cor principal da linha e texto */
+  padding: 0;
+  
+  /* Tipografia */
+  font-size: var(--hero-badge-size);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-style: italic;
+  letter-spacing: 2px;
+  
+  /* Margem inferior */
+  margin-bottom: clamp(0.5rem, 1vw, 1rem);
+  position: relative;
+}
+
+.hero__badge::before,
+.hero__badge::after {
+  content: "";
+  display: block;
+  width: clamp(20px, 4vw, 40px); /* tamanho das linhas */
+  height: 2px;
+  background-color: var(--hero-secondary-color); /* mesma cor do texto */
+  border-radius: 2px;
+}
+
+
+.hero__badge-icon {
+  font-size: 1em;
+  flex-shrink: 0;
+}
+
+.hero__text {
+  /* Espaçamento entre elementos */
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1rem, 3vw, 1.5rem);
+  max-width: 650px;
+}
+
+/* Título principal */
+.hero__title {
+  /* Tipografia responsiva */
+  font-size: var(--hero-title-size);
+  font-weight: var(--hero-title-weight);
+  line-height: var(--hero-title-line-height);
+ 
+  
+  /* Espaçamento */
+  margin: 0;
+  
+  /* Alinhamento à esquerda */
+  text-align: left;
+  
+  /* Quebra de palavra para textos longos 
+   hyphens: none;
+   word-wrap:normal; /* opcional, se o texto não for enorme 
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; */
+  
+}
+
+.efeitos__text{
+   /* Animação */
+  animation: fadeInUp 0.8s ease-out 0.2s both;
+  color: transparent; /* deixa o interior vazio */
+  -webkit-text-stroke: 1px white; /* espessura e cor do contorno */
+  text-transform: capitalize;
+}
+
+/* Destaque no título */
+.hero__title-highlight {
+  background: var(--hero-accent-color);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+  
+  /* Fallback para navegadores que não suportam background-clip */
+  
+}
+
+/* Parágrafo descritivo */
+.hero__description {
+  /* Tipografia responsiva */
+  font-size: var(--hero-description-size);
+  font-weight: var(--hero-description-weight);
+  line-height: var(--hero-description-line-height);
+  color: var(--hero-shadow-light);
+  
+  /* Espaçamento */
+  margin: 0;
+  letter-spacing: 0.03px;
+  
+  /* Alinhamento à esquerda */
+  text-align: left;
+  
+  /* Quebra de texto responsiva */
+  word-wrap: break-word;
+  max-width: 100%;
+}
+
+/* ===== BOTÕES DE AÇÃO ===== */
+.hero__actions {
+  /* Layout flexível */
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(0.75rem, 2vw, 1rem);
+  align-items: center;
+  
+  /* Alinhamento à esquerda */
+  justify-content: flex-start;
+  
+  /* Largura total em telas pequenas */
+  width: 100%;
+}
+
+/* Estilos base dos botões */
+.hero__btn {
+  /* Layout */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.25rem, 1vw, 0.5rem);
+  
+  /* Dimensões responsivas */
+  padding: var(--hero-btn-padding);
+  border-radius: var(--hero-btn-border-radius);
+  min-height: 44px;
+  
+  /* Tipografia */
+  font-family: var(--font-family);
+  font-size: var(--hero-btn-font-size);
+  font-weight: var(--hero-btn-font-weight);
+  text-decoration: none;
+  white-space: nowrap;
+  
+  /* Transições suaves */
+  transition: var(--hero-btn-transition);
+  
+  /* Cursor */
+  cursor: pointer;
+  
+  /* Remove outline padrão */
+  outline: none;
+  border: none;
+  
+  /* Flexibilidade */
+  flex: 0 1 auto;
+}
+
+/* Botão primário - Azul */
+.hero__btn--primary {
+  /* Cores */
+  background: var(--hero-secondary-color);
+  color: var(--hero-primary-color);
+  border: 2px solid var(--hero-secondary-color);
+  border-radius: var(--hero-badge-border-radius);
+  font-weight: 600;
+}
+
+.hero__btn--primary:hover,
+.hero__btn--primary:focus {
+  /* Hover state */
+  background: transparent;
+  border: 2px solid var(--hero-secondary-color);
+  color: var( --hero-secondary-color);
+
+}
+
+/* Botão secundário - Outline */
+.hero__btn--secondary {
+  /* Cores */
+  background: transparent;
+  color: var(--hero-accent-color); 
+  border: 2px solid var(--hero-accent-color);
+  border-radius: var(--hero-badge-border-radius);
+  backdrop-filter: blur(10px);
+   font-weight: 600;
+}
+
+.hero__btn--secondary:hover {
+  background: var(--hero-accent-color);
+  color: var(--hero-text-highlight);
+  border: 2px solid var(--hero-accent-color);
+  transform: translateY(-1px);
+}
+  
+/* Ícones dos botões */
+.hero__btn-icon {
+  font-size: 1em;
+  flex-shrink: 0;
+}
+
+/* ===== IMAGEM LATERAL - LADO DIREITO ===== */
+.hero__image {
+  /* Layout */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  /* Remove margens padrão do figure */
+  margin: 0;
+  
+  /* Fundo da imagem */
+  background: #f0f4f8;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero__img {
+  /* Dimensões */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  
+  /* Remove bordas arredondadas para split-screen */
+  border-radius: 0;
+  
+  /* Transição suave */
+  transition: transform 0.3s ease;
+}
+
+.hero__img:hover {
+  transform: scale(1.05);
+}
+
+/* ===== ANIMAÇÕES ===== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== RESPONSIVIDADE APRIMORADA ===== */
+
+/* Desktop extra grande (1600px+) */
+@media (min-width: 1600px) {
+  .hero__content {
+    padding: var(--hero-padding-y) clamp(4rem, 8vw, 8rem);
+  }
+  
+  .hero__text {
+    max-width: 750px;
+  }
+}
+
+/* Desktop grande (1200px - 1599px) */
+@media (max-width: 1599px) and (min-width: 1200px) {
+  .hero__content {
+    padding: var(--hero-padding-y) clamp(3rem, 6vw, 6rem);
+  }
+  
+  .hero__text {
+    max-width: 650px;
+  }
+}
+
+/* Laptops (992px - 1199px) */
+@media (max-width: 1199px) and (min-width: 992px) {
+  .hero__content {
+    padding: var(--hero-padding-y) clamp(2.5rem, 5vw, 5rem);
+  }
+  
+  .hero__text {
+    max-width: 600px;
+  }
+}
+
+/* Tablets grandes (768px - 991px) - Muda para layout vertical */
+@media (max-width: 991px) {
+  .hero {
+    min-height: auto;
+  }
+  
+  .hero__container {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    min-height: 100vh;
+  }
+  
+  .hero__content {
+    padding: clamp(3rem, 8vh, 6rem) var(--hero-padding-x);
+    align-items: center;
+    text-align: center;
+  }
+  
+  .hero__text {
+    max-width: 700px;
+  }
+  
+  .hero__title,
+  .hero__description {
+    text-align: center;
+  }
+  
+  .hero__badge {
+    margin: 0 auto;
+  }
+  
+  .hero__actions {
+    justify-content: center;
+  }
+  
+  .hero__image {
+    min-height: 400px;
+    order: -1;
+  }
+  
+  .hero__img {
+    object-fit: cover;
+  }
+}
+
+/* Tablets pequenos (576px - 767px) */
+@media (max-width: 767px) and (min-width: 576px) {
+  .hero__container {
+    min-height: auto;
+  }
+  
+  .hero__content {
+    padding: clamp(2.5rem, 6vh, 5rem) clamp(1.5rem, 4vw, 2.5rem);
+  }
+  
+  .hero__text {
+    max-width: 600px;
+  }
+  
+  .hero__actions {
+    gap: 1rem;
+  }
+  
+  .hero__image {
+    min-height: 350px;
+  }
+}
+
+/* Smartphones grandes (480px - 575px) */
+@media (max-width: 575px) and (min-width: 480px) {
+  .hero__content {
+    padding: clamp(2rem, 5vh, 4rem) 1.5rem;
+  }
+  
+  .hero__text {
+    max-width: 100%;
+  }
+  
+  .hero__actions {
+    flex-direction: column;
+    width: 100%;
+    align-items: stretch;
+    gap: 1rem;
+  }
+  
+  .hero__btn {
+    width: 100%;
+    justify-content: center;
+    min-height: 52px;
+  }
+  
+  .hero__image {
+    min-height: 300px;
+  }
+}
+
+/* Smartphones pequenos (320px - 479px) */
+@media (max-width: 479px) {
+  .hero__content {
+    padding: clamp(1.5rem, 4vh, 3rem) 1rem;
+  }
+  
+  .hero__title {
+    font-size: clamp(1.75rem, 7vw, 2.5rem);
+    line-height: 1.15;
+  }
+  
+  .hero__description {
+    font-size: clamp(0.95rem, 4vw, 1.1rem);
+    line-height: 1.6;
+  }
+  
+  .hero__btn {
+    font-size: 1rem;
+    padding: 1rem 2rem;
+    min-height: 52px;
+  }
+  
+  .hero__badge {
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
+  }
+  
+  .hero__actions {
+    gap: 0.75rem;
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .hero__btn {
+    width: 100%;
+  }
+  
+  .hero__image {
+    min-height: 250px;
+  }
+}
+
+/* Ajustes para telas muito pequenas */
+@media (max-width: 360px) {
+  .hero__content {
+    padding: 1.5rem 0.75rem;
+  }
+  
+  .hero__title {
+    font-size: 1.5rem;
+  }
+  
+  .hero__description {
+    font-size: 0.9rem;
+  }
+  
+  .hero__btn {
+    font-size: 0.95rem;
+    padding: 0.875rem 1.5rem;
+  }
+  
+  .hero__image {
+    min-height: 200px;
+  }
+}
+
+/* Ajustes para telas ultra-wide */
+@media (min-aspect-ratio: 21/9) {
+  .hero__container {
+    grid-template-columns: 45% 55%;
+  }
+  
+  .hero__content {
+    padding: var(--hero-padding-y) clamp(4rem, 10vw, 12rem);
+  }
+}
+
+/* Ajustes para modo paisagem em dispositivos móveis */
+@media (max-width: 991px) and (orientation: landscape) {
+  .hero__container {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    min-height: 100vh;
+  }
+  
+  .hero__content {
+    padding: clamp(2rem, 5vh, 4rem) clamp(2rem, 4vw, 3rem);
+    text-align: left;
+    align-items: flex-start;
+  }
+  
+  .hero__title,
+  .hero__description {
+    text-align: left;
+  }
+  
+  .hero__badge {
+    margin: 0;
+  }
+  
+  .hero__actions {
+    justify-content: flex-start;
+  }
+  
+  .hero__image {
+    order: 1;
+    min-height: auto;
+  }
+}
+
+/* Preferência por movimento reduzido (acessibilidade) */
+@media (prefers-reduced-motion: reduce) {
+  .hero__title {
+    animation: none;
+  }
+  
+  .hero__btn,
+  .hero__img {
+    transition: none;
+  }
+}
+
+/* Modo escuro (se aplicável) 
+@media (prefers-color-scheme: dark) {
+  .hero__content {
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.98), rgba(30, 41, 59, 0.98));
+  }
+  
+  .hero__image {
+    background: #1e293b;
+  }
+} */
+

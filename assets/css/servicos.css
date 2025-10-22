@@ -1,0 +1,592 @@
+/* ===== SEÇÃO DE SERVIÇOS - PERSONAL TRAINER ===== */
+
+/* Variáveis específicas da seção de serviços */
+:root {
+ /* ===================================
+   CORES DA SEÇÃO DE SERVIÇOS - REFINADA E HARMONIZADA COM O HERO
+   =================================== */
+
+    /* Cores principais */
+    --servicos-primary-color: #3f6fd3;          /* Azul principal, coerente com o hero */
+    --servicos-primary-hover: #3f6fd3;          /* Azul mais escuro para interação */
+    --servicos-secondary-color: #3f6fd3;        /* Azul claro para destaque suave */
+    --servicos-accent-color: #e4a216;           /* Verde água para reforçar limpeza e frescor */
+
+    /* Cores de texto */
+    --servicos-text-primary: #1E293B;           /* Texto escuro, legível em fundo claro */
+    --servicos-text-secondary: #475569;         /* Texto secundário acinzentado */
+    --servicos-text-tertiary: #FFFFFF;          /* Texto claro sobre fundos coloridos */
+
+    /* Cores de fundo */
+    --servicos-bg-primary: #FFFFFF;             /* Fundo principal claro */
+    --servicos-bg-secondary: #FFFFFF;           /* Fundo alternado */
+    --servicos-bg-card: #FFFFFF;                /* Fundo dos cards limpo */
+
+    /* Gradientes modernos */
+    --servicos-gradient-primary: linear-gradient(135deg, #3f6fd3 100%, #3f6fd3 100%);
+    --servicos-gradient-accent: linear-gradient(135deg, #1E293B 0%, #1E293B 100%);
+    --servicos-gradient-overlay: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+
+    /* Sombras e profundidade */
+    --servicos-shadow-sm: 0 2px 8px rgba(59, 130, 246, 0.1);
+    --servicos-shadow-md: 0 4px 16px rgba(59, 130, 246, 0.15);
+    --servicos-shadow-lg: 0 8px 24px rgba(59, 130, 246, 0.2);
+    --servicos-shadow-hover: 0px 1px 20px rgba(0, 198, 174, 0.25);
+  
+    /* Tipografia responsiva */
+    --servicos-title-size: clamp(2rem, 3.5vw + 1rem, 3rem);
+    --servicos-subtitle-size: clamp(1rem, 1.5vw + 0.5rem, 1.25rem);
+    --servicos-card-title-size: clamp(1.25rem, 1.8vw + 0.5rem, 1.5rem);
+    --servicos-card-text-size: clamp(0.9rem, 1.2vw + 0.5rem, 1rem);
+
+     /* Espaçamentos */
+    --servicos-section-padding: clamp(4rem, 10vh, 8rem) clamp(1.5rem, 5vw, 4rem);
+    --servicos-gap: clamp(1.5rem, 3vw, 2rem);
+    --servicos-card-padding: clamp(1.5rem, 3vw, 2rem);
+    
+    /* Bordas */
+    --servicos-border-radius: clamp(1rem, 2vw, 1.5rem);
+    --servicos-border-radius-sm: clamp(0.5rem, 1vw, 0.75rem);
+    
+    /* Transições */
+    --servicos-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --servicos-transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ===== CONTAINER PRINCIPAL DA SEÇÃO ===== */
+.servicos {
+  position: relative;
+  background: var(--servicos-bg-secondary);
+  padding: var(--servicos-section-padding);
+  font-family: var(--font-family);
+  overflow: hidden;
+}
+
+/* Efeito de fundo decorativo */
+.servicos::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40%;
+  height: 100%;
+  
+  pointer-events: none;
+  z-index: 0;
+}
+
+.servicos__container {
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(3rem, 6vw, 4rem);
+}
+
+/* ===== CABEÇALHO DA SEÇÃO ===== */
+.servicos__header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--servicos-gap);
+  align-items: center;
+}
+
+/* Badge superior */
+.servicos__badge {
+  /* Layout */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.5rem, 1vw, 0.75rem);
+  width: fit-content;
+  
+  /* Visual */
+  background: none; /* remove o fundo */
+  color: var(--servicos-accent-color); /* cor principal da linha e texto */
+  padding: 0;
+  
+  /* Tipografia */
+  font-size: var(--hero-badge-size);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-style: italic;
+  letter-spacing: 2px;
+  
+  /* Margem inferior */
+  margin-bottom: clamp(0.5rem, 1vw, 1rem);
+  position: relative;
+}
+
+.servicos__badge::before,
+.servicos__badge::after {
+  content: "";
+  display: block;
+  width: clamp(20px, 4vw, 40px); /* tamanho das linhas */
+  height: 2px;
+  background-color: var(--servicos-accent-color); /* mesma cor do texto */
+  border-radius: 2px;
+}
+
+.servicos__badge-icon {
+  font-size: 1em;
+  flex-shrink: 0;
+}
+
+/* Título da seção */
+.servicos__title {
+  font-size: var(--servicos-title-size);
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--servicos-text-primary);
+  margin: 0;
+  
+  text-align: center;
+}
+
+.servicos__title-highlight {
+  background: var(--servicos-gradient-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+}
+
+/* Descrição da seção */
+.servicos__description {
+  font-size: var(--servicos-subtitle-size);
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--servicos-text-secondary);
+  margin: 0;
+  text-align: center;
+  max-width: 700px;
+}
+
+/* ===== GRID DE SERVIÇOS ===== */
+.servicos__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: var(--servicos-gap);
+  width: 100%;
+}
+
+/* Ajuste para 3 colunas em telas grandes */
+@media (min-width: 992px) {
+  .servicos__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ===== CARDS DE SERVIÇO ===== */
+.servicos__card {
+  background: var(--servicos-bg-card);
+  border-radius: 25px;
+  overflow: hidden;
+  box-shadow: var(--servicos-shadow-sm);
+  transition: var(--servicos-transition);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.servicos__card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--servicos-shadow-hover);
+}
+
+/* Card em destaque (Mais Popular) */
+.servicos__card--featured {
+  border: 2px solid var(--servicos-gradient-primary);
+  position: relative;
+}
+
+.servicos__featured-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: var(--servicos-gradient-primary);
+  color: var(--servicos-text-tertiary);
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  box-shadow: var(--servicos-shadow-md);
+}
+
+/* Imagem do card */
+.servicos__card-image {
+  position: relative;
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+  background: var(--servicos-bg-secondary);
+}
+
+.servicos__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: var(--servicos-transition-slow);
+}
+
+.servicos__card:hover .servicos__img {
+  transform: scale(1.1);
+}
+
+/* Overlay da imagem */
+.servicos__card-overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--servicos-gradient-overlay);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: var(--servicos-transition);
+}
+
+.servicos__card:hover .servicos__card-overlay {
+  opacity: 1;
+}
+
+.servicos__card-icon {
+  font-size: 3rem;
+  color: var(--servicos-text-tertiary);
+  transform: translateX(-20px);
+  transition: var(--servicos-transition);
+}
+
+.servicos__card:hover .servicos__card-icon {
+  transform: translateX(0);
+}
+
+/* Conteúdo do card */
+.servicos__card-content {
+  padding: var(--servicos-card-padding);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex: 1;
+}
+
+/* Cabeçalho do card */
+.servicos__card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.servicos__card-emoji {
+  font-size: 2rem;
+  color: var(--servicos-primary-color);
+  flex-shrink: 0;
+}
+
+.servicos__card-title {
+  font-size: var(--servicos-card-title-size);
+  font-weight: 700;
+  color: var(--servicos-text-primary);
+  margin: 0;
+  line-height: 1.3;
+}
+
+/* Texto do card */
+.servicos__card-text {
+  font-size: var(--servicos-text-size);
+  line-height: 1.6;
+  color: var(--servicos-text-secondary);
+  margin: 0;
+}
+
+/* Lista de benefícios */
+.servicos__card-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.servicos__card-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: var(--servicos-text-size);
+  color: var(--servicos-text-secondary);
+}
+
+.servicos__item-icon {
+  font-size: 1.1em;
+  color: var(--servicos-accent-color);
+  flex-shrink: 0;
+}
+
+/* Botão do card */
+.servicos__card-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.5rem;
+  background: transparent;
+  color: var(--servicos-primary-color);
+  border: 2px solid var(--servicos-primary-color);
+  border-radius: 50px;
+  font-size: var(--servicos-text-size);
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--servicos-transition);
+  margin-top: auto;
+  cursor: pointer;
+}
+
+.servicos__card-btn:hover {
+  background: var(--servicos-gradient-primary);
+  color: var(--servicos-text-tertiary);
+  border-color: transparent;
+  transform: translateY(-2px);
+  box-shadow: var(--servicos-shadow-md);
+}
+
+.servicos__btn-icon {
+  font-size: 1em;
+  flex-shrink: 0;
+  transition: var(--servicos-transition);
+}
+
+.servicos__card-btn:hover .servicos__btn-icon {
+  transform: translateX(4px);
+}
+
+/* Card em destaque - Botão diferenciado */
+.servicos__card--featured .servicos__card-btn {
+  background: var(--servicos-gradient-primary);
+  color: var(--servicos-text-tertiary);
+  border-color: transparent;
+}
+
+.servicos__card--featured .servicos__card-btn:hover {
+  background: var(--servicos-gradient-primary);
+  color: var(--servicos-text-tertiary);
+  transform: translateY(-2px) scale(1.02);
+}
+
+/* ===== CALL TO ACTION FINAL ===== */
+.servicos__cta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.servicos__cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  width: 350px;
+  margin: 0 auto;
+  background: var(--servicos-gradient-primary);
+  color: var(--servicos-text-tertiary);
+  border-radius: 50px;
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--servicos-transition);
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+}
+
+.servicos__cta-btn:hover {
+  background: var(--servicos-gradient-primary);
+  color: var(--servicos-text-tertiary);
+  transform: translateY(-2px);
+}
+
+.servicos__cta-icon {
+  font-size: 1.25em;
+  flex-shrink: 0;
+}
+
+/* ===== ANIMAÇÕES ===== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Aplicar animação aos cards */
+.servicos__card {
+  animation: fadeInUp 0.6s ease-out both;
+}
+
+.servicos__card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.servicos__card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.servicos__card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+
+/* Desktop extra grande (1600px+) */
+@media (min-width: 1600px) {
+  /* Removido, pois o auto-fit já lida com isso de forma mais fluida */
+}
+
+
+/* Laptops (992px - 1199px) */
+@media (max-width: 1199px) and (min-width: 992px) {
+  /* Ajuste: Forçar 2 colunas para telas de laptop para evitar cards muito estreitos */
+  .servicos__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Tablets grandes (768px - 991px) */
+@media (max-width: 991px) {
+  .servicos__grid {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  }
+}
+
+/* Tablets pequenos e smartphones grandes (576px - 767px) */
+@media (max-width: 767px) {
+  .servicos {
+    padding: clamp(3rem, 8vh, 5rem) clamp(1.5rem, 4vw, 2rem);
+  }
+  
+  .servicos__grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .servicos__card-image {
+    height: 200px;
+  }
+  
+  .servicos__featured-badge {
+    top: 0.75rem;
+    right: 0.75rem;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.75rem;
+  }
+}
+
+/* Smartphones pequenos (320px - 575px) */
+@media (max-width: 575px) {
+  .servicos {
+    padding: 2.5rem 1rem;
+  }
+  
+  .servicos__header {
+    gap: 1rem;
+  }
+  
+  .servicos__card-content {
+    padding: 1.25rem;
+  }
+  
+  .servicos__card-image {
+    height: 180px;
+  }
+  
+  .servicos__card-emoji {
+    font-size: 1.5rem;
+  }
+  
+  .servicos__cta {
+    padding: 1.5rem 1rem;
+  }
+  
+  .servicos__cta-btn {
+    width: 70%;
+     padding: 0.75rem 1rem;
+  }
+}
+
+/* Ajustes para telas muito pequenas */
+@media (max-width: 374px) {
+  .servicos__card-list {
+    gap: 0.5rem;
+  }
+
+  .servicos__title {
+   font-size: 1.7rem;
+  
+  }
+  .servicos__card-item {
+    font-size: 0.85rem;
+  }
+  
+  .servicos__card-btn {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.9rem;
+  }
+
+  .servicos__cta-btn{
+     width: 70%;
+     padding: 0.65rem 1rem;
+     font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 320px){
+   .servicos__cta-btn{
+     width: 75%;
+     padding: 0.8rem .5rem;
+     font-size: 0.8rem;
+  }
+}
+/* ===== ACESSIBILIDADE ===== */
+
+/* Foco visível para navegação por teclado */
+.servicos__card-btn:focus,
+.servicos__cta-btn:focus {
+  outline: 2px solid var(--servicos-primary-color);
+  outline-offset: 2px;
+}
+
+/* Reduzir animações para usuários que preferem menos movimento */
+@media (prefers-reduced-motion: reduce) {
+  .servicos__card,
+  .servicos__img,
+  .servicos__card-overlay,
+  .servicos__card-icon,
+  .servicos__card-btn,
+  .servicos__cta-btn {
+    animation: none;
+    transition: none;
+  }
+  
+  .servicos__card:hover {
+    transform: none;
+  }
+  
+  .servicos__card:hover .servicos__img {
+    transform: none;
+  }
+}
+

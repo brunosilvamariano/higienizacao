@@ -1,0 +1,366 @@
+
+/* ===== VARIÁVEIS DE SEÇÃO - TESTEMUNHAS (Ajustadas para usar as globais) ===== */
+:root {
+    --testemunhas-primary-color: #1a2a4a; /* Fundo escuro específico */
+    --testemunhas-secondary-color: var(--secondary-color); /* Laranja/Amarelo de destaque */
+    --testemunhas-text-color: var(--text-tertiary); /* Texto branco */
+    --testemunhas-card-bg-color: #13223f; /* Fundo do card escuro específico */
+    --testemunhas-star-filled-color: var(--testemunhas-secondary-color);
+    --testemunhas-star-empty-color: #cccccc;
+}
+
+:root {
+    /* ===================================
+       TIPOGRAFIA E LAYOUT GERAL
+       =================================== */
+   
+    --max-width: 1400px;
+    
+    /* Espaçamentos */
+    --section-padding: clamp(4rem, 10vh, 8rem) clamp(1.5rem, 5vw, 4rem);
+    --gap: clamp(1.5rem, 3vw, 2rem);
+    
+    /* Tipografia responsiva */
+    --title-size: clamp(2rem, 3.5vw + 1rem, 3rem);
+    --subtitle-size: clamp(1rem, 1.5vw + 0.5rem, 1.25rem);
+    --card-title-size: clamp(1.25rem, 1.8vw + 0.5rem, 1.5rem);
+    --text-size: clamp(0.9rem, 1.2vw + 0.5rem, 1rem);
+    
+    /* Transições */
+    --transition-speed: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+/* ===================================
+   ESTILOS GERAIS DA SEÇÃO
+   =================================== */
+.testimonials-section {
+    position: relative;
+    width: 100%;
+    padding: var(--section-padding);
+    background-color: var(--testemunhas-primary-color);
+    overflow: hidden;
+    padding-right: 20px; /* Adiciona um padding à direita para garantir que a borda seja visível */
+    font-family: var(--font-family);
+}
+
+.testimonials-content {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    position: relative;
+    z-index: 2; /* Garante que o conteúdo esteja acima da imagem de fundo */
+    padding: 0 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.testimonials-text {
+    flex: 1;
+    min-width: 300px;
+    padding: 50px;
+    color: var(--testemunhas-text-color);
+    text-align: left;
+}
+
+.testimonials__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: clamp(0.25rem, 1vw, 0.5rem);
+    color: var(--servicos-accent-color);
+    padding: clamp(0.5rem, 1.5vw, 0.75rem) clamp(1rem, 2.5vw, 1.5rem);
+    border-radius: 50px;
+  
+    font-style: italic;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    width: fit-content;
+}
+
+.testimonials__badge::before,
+.testimonials__badge::after {
+    content: "";
+    display: block;
+    width: clamp(20px, 4vw, 40px); /* tamanho das linhas */
+    height: 2px;
+    background-color: var(--servicos-accent-color); /* mesma cor do texto */
+    border-radius: 2px;
+}
+.title {
+    font-size: var(--title-size);
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.btn-all-testimonials {
+    background-color: var(--testemunhas-secondary-color);
+    color: var(--testemunhas-primary-color);
+    border: none;
+    padding: 15px 30px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: var(--transition-speed);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-all-testimonials:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+}
+
+/* ===================================
+   ESTILOS DO CARROSSEL E CARDS
+   =================================== */
+.testimonials-carousel-wrapper {
+    flex: 2;
+    min-width: 300px;
+    position: relative;
+    padding: 50px 0;
+    overflow: hidden;
+    padding-right: 325px; /* Adiciona um padding à direita para garantir que a borda seja visível */
+    max-width: 700px;
+}
+
+.testimonials-carousel {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+    cursor: grab;
+}
+
+.testimonials-carousel.grabbing {
+    cursor: grabbing;
+}
+
+.testimonial-card {
+    background-color: var(--testemunhas-card-bg-color);
+    padding: 30px;
+    border-radius: 15px;
+    min-width: 320px;
+    max-width: 90%; /* Limita a largura máxima do card */
+    box-sizing: border-box; /* Garante que padding e border sejam incluídos na largura */
+    flex-shrink: 0;
+    color: var(--testemunhas-text-color);
+    border: 1px solid var(--testemunhas-secondary-color);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    user-select: text; /* Garante que o texto seja selecionável */
+}
+
+.testimonial-figure {
+    display: flex;
+    align-items: center;
+    margin: 0 0 15px 0;
+}
+
+.profile-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 15px;
+    object-fit: cover;
+}
+
+.name {
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-bottom: 2px;
+}
+
+.role {
+    font-size: 0.9em;
+    color: #ccc;
+}
+
+.stars {
+    margin-bottom: 15px;
+    font-size: 1.2em;
+    color: var(--testemunhas-star-empty-color); /* Cor padrão para estrelas */
+}
+
+.star.filled {
+    color: var(--testemunhas-star-filled-color);
+}
+
+.testimonial-text {
+    font-size: var(--text-size);
+    line-height: 1.6;
+    color: var(--testemunhas-text-color); /* Usar a cor de texto específica para depoimentos */
+    margin: 0;
+    word-wrap: break-word; /* Quebra palavras longas */
+    overflow-wrap: break-word; /* Garante que o texto se ajuste ao contêiner */
+}
+
+.quote-icon {
+    font-size: 3em;
+    color: var(--testemunhas-secondary-color);
+    float: right;
+    opacity: 0.5;
+    line-height: 1;
+    margin-top: 10px;
+}
+
+/* ===================================
+   ESTILOS DE NAVEGAÇÃO POR PONTOS
+   =================================== */
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 10px;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3; /* Garante que os pontos estejam acima do carrossel */
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.dot:hover {
+    transform: scale(1.2);
+}
+
+.dot.active {
+    background-color: var(--testemunhas-secondary-color);
+    transform: scale(1.2);
+}
+
+/* ===================================
+   IMAGEM DE FUNDO
+   =================================== */
+.testimonials-background-image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    z-index: 1; /* Mover para trás do conteúdo, mas acima da section */
+    display: block;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.testimonials-background-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.3;
+}
+
+/* ===================================
+   RESPONSIVIDADE
+   =================================== */
+/* Para telas menores que 1200px (típico para tablets e desktops menores) */
+@media (max-width: 1200px) {
+    .testimonials-content {
+        flex-direction: column;
+        align-items: center;
+        padding: 0 40px;
+    }
+
+    .testimonials-text {
+        text-align: center;
+        padding: 50px 0;
+        min-width: unset;
+        width: 100%;
+    }
+    
+    .testimonials-carousel-wrapper {
+        flex: none;
+        width: 100%;
+        padding: 50px 0;
+        min-width: unset;
+    }
+    
+    .testimonials-background-image {
+        width: 100%;
+        height: 100%;
+        opacity: 0.1;
+        z-index: 0; /* Ajustar z-index para telas menores */
+    }
+
+    .carousel-dots {
+        position: relative;
+        bottom: unset;
+        left: unset;
+        transform: none;
+        margin-top: 20px;
+    }
+}
+
+/* Para telas menores que 1024px (típico para tablets em modo retrato) */
+@media (max-width: 1024px) {
+    .testimonials-content {
+        padding: 0 20px;
+    }
+
+    .testimonials-text {
+        padding: 30px 0;
+    }
+
+    .title {
+        font-size: clamp(1.5em, 5vw, 2.2em);
+    }
+
+    .testimonial-card {
+        min-width: 100%;
+        padding: 20px;
+    }
+    
+    .carousel-dots {
+        margin-top: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .testimonials-content {
+        padding: 0 20px;
+    }
+
+    .testimonials-text {
+        padding: 30px 0;
+    }
+
+    .title {
+        font-size: clamp(1.5em, 5vw, 2.2em);
+    }
+
+    .testimonial-card {
+        min-width: 100%;
+        padding: 20px;
+    }
+    
+    .carousel-dots {
+        margin-top: 15px;
+    }
+}
+
+/* Para telas menores que 480px (típico para smartphones) */
+@media (max-width: 480px) {
+    .testimonials-content {
+        padding: 0 15px;
+    }
+
+    .testimonial-card {
+        min-width: 100%;
+    }
+
+    .carousel-dots {
+        margin-top: 25px;
+    }
+}
+

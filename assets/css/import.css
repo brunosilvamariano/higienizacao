@@ -1,0 +1,21 @@
+/* ===== ARQUIVO PRINCIPAL CSS - REFATORADO COM SISTEMA DE VARIÁVEIS ===== */
+
+/* Importar primeiro as variáveis globais */
+@import url(./variables.css);
+
+/* Importar componentes refatorados */
+@import url(./header.css);
+@import url(./hero.css);
+@import url(./servicos.css);
+@import url(./como__funciona.css);
+@import url(./cta__contato.css);
+@import url(./antes__depois.css);
+@import url(./about.css);
+@import url(./clientes.css);
+@import url(./testemunhas.css);
+@import url(./faq.css);
+@import url(./contato.css);
+@import url(./footer.css);
+/* Fallback para o FAQ antigo caso necessário */
+/* @import url(./faq.css); */
+

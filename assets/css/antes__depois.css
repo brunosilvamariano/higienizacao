@@ -1,0 +1,492 @@
+/* ===== SEÇÃO ANTES E DEPOIS - INTERATIVA E MODERNA ===== */
+
+/* Variáveis específicas da seção antes e depois */
+:root {
+  /* ===================================
+     CORES DA SEÇÃO ANTES E DEPOIS
+     =================================== */
+  
+  /* Cores principais */
+  --antes__depois-primary-color: #3f6fd3;
+  --antes__depois-primary-hover: #3f6fd3;
+  --antes__depois-secondary-color: #3f6fd3;
+  --antes__depois-accent-color: #4ECDC4;
+  
+  /* Cores de texto */
+  --antes__depois-text-primary: #1E293B;
+  --antes__depois-text-secondary: #475569;
+  --antes__depois-text-tertiary: #FFFFFF;
+  
+  /* Cores de fundo */
+  --antes__depois-bg: #FFFFFF;
+  --antes__depois-bg-secondary: #F9FAFB;
+  --antes__depois-bg-card: #FFFFFF;
+  
+  /* Gradientes modernos */
+  --antes__depois-gradient-primary: linear-gradient(135deg, #3f6fd3 0%, #3f6fd3 100%);
+  --antes__depois-gradient-accent: linear-gradient(135deg, #3f6fd3 100%, #3f6fd3 100%);
+  
+  /* Sombras e profundidade */
+  --antes__depois-shadow-sm: 0 2px 8px rgba(59, 130, 246, 0.1);
+  --antes__depois-shadow-md: 0 4px 16px rgba(59, 130, 246, 0.15);
+  --antes__depois-shadow-lg: 0 8px 24px rgba(59, 130, 246, 0.2);
+  --antes__depois-shadow-hover: 0px 1px 20px rgba(0, 198, 174, 0.25);
+  
+  /* Tipografia responsiva */
+  --antes__depois-title-size: clamp(2rem, 3.5vw + 1rem, 3rem);
+  --antes__depois-subtitle-size: clamp(1rem, 1.5vw + 0.5rem, 1.25rem);
+  --antes__depois-text-size: clamp(0.9rem, 1.2vw + 0.5rem, 1rem);
+  
+  /* Espaçamentos */
+  --antes__depois-section-padding: clamp(4rem, 10vh, 8rem) clamp(1.5rem, 5vw, 4rem);
+  --antes__depois-gap: clamp(1.5rem, 3vw, 2rem);
+  
+  /* Bordas */
+  --antes__depois-border-radius: clamp(1rem, 2vw, 1.5rem);
+  --antes__depois-border-radius-sm: clamp(0.5rem, 1vw, 0.75rem);
+  
+  /* Transições */
+  --antes__depois-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --antes__depois-transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ===== CONTAINER PRINCIPAL DA SEÇÃO ===== */
+.antes__depois {
+  position: relative;
+  background: var(--antes__depois-bg);
+  padding: var(--antes__depois-section-padding);
+  font-family: var(--font-family);
+  overflow: hidden;
+}
+
+/* Efeito de fundo decorativo */
+.antes__depois::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40%;
+  height: 100%;
+  background: radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.05), transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.antes__depois__container {
+  max-width: 1440px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(3rem, 6vw, 4rem);
+}
+
+/* ===== CABEÇALHO DA SEÇÃO ===== */
+.antes__depois__header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--antes__depois-gap);
+  align-items: center;
+}
+
+/* Badge superior */
+.antes__depois__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: clamp(0.25rem, 1vw, 0.5rem);
+  color: var(--servicos-accent-color);
+  padding: clamp(0.5rem, 1.5vw, 0.75rem) clamp(1rem, 2.5vw, 1.5rem);
+  border-radius: 50px;
+  
+ 
+
+  font-style: italic;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  width: fit-content;
+}
+
+.antes__depois__badge::before,
+.antes__depois__badge::after {
+  content: "";
+  display: block;
+  width: clamp(20px, 4vw, 40px); /* tamanho das linhas */
+  height: 2px;
+  background-color: var(--servicos-accent-color); /* mesma cor do texto */
+  border-radius: 2px;
+}
+
+.antes__depois__badge-icon {
+  font-size: 1em;
+  flex-shrink: 0;
+}
+
+/* Título da seção */
+.antes__depois__title {
+  font-size: var(--antes__depois-title-size);
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--antes__depois-text-primary);
+  margin: 0;
+  text-align: center;
+}
+
+.antes__depois__title-highlight {
+  background: var(--antes__depois-gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+}
+
+/* Descrição da seção */
+.antes__depois__description {
+  font-size: var(--antes__depois-subtitle-size);
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--antes__depois-text-secondary);
+  margin: 0;
+  text-align: center;
+  max-width: 700px;
+}
+
+/* ===== GRID DE COMPARAÇÕES ===== */
+.antes__depois__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
+  gap: var(--antes__depois-gap);
+  width: 100%;
+}
+
+/* Ajuste para 3 colunas em telas grandes */
+@media (min-width: 992px) {
+  .antes__depois__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ===== CARDS DE COMPARAÇÃO ===== */
+.antes__depois__card {
+  background: var(--antes__depois-bg-card);
+  border-radius: var(--antes__depois-border-radius);
+  overflow: hidden;
+  box-shadow: var(--antes__depois-shadow-md);
+  transition: var(--antes__depois-transition);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.antes__depois__card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--antes__depois-shadow-hover);
+}
+
+/* ===== CONTAINER DE COMPARAÇÃO INTERATIVA ===== */
+.antes__depois__comparison {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  cursor: col-resize;
+  user-select: none;
+  background: var(--antes__depois-bg-secondary);
+}
+
+/* Imagem "Antes" (fundo) */
+.antes__depois__image-antes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: left; /* Alinhamento à esquerda para a imagem 'antes' */
+  transform: scale(1); 
+  transition: transform 0.3s ease-out;
+}
+
+/* Container da imagem "Depois" */
+.antes__depois__image-depois-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  transition: width 0.1s ease-out, left 0.1s ease-out; /* Adicionado transição para left */
+}
+
+/* Imagem "Depois" */
+.antes__depois__image-depois {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%; 
+  height: 100%;
+  object-fit: cover;
+  object-position: right; /* Alinhamento à direita para a imagem 'depois' */
+  transform: scale(1.2); 
+  transition: transform 0.3s ease-out;
+}
+
+/* Divisor deslizante */
+.antes__depois__slider {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 4px;
+  height: 100%;
+  background: var(--antes__depois-text-tertiary);
+  transform: translateX(-50%);
+  z-index: 10;
+  cursor: col-resize;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  transition: left 0.1s ease-out; /* Adicionado transição para left */
+}
+
+/* Handle do divisor */
+.antes__depois__slider-handle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 48px;
+  height: 48px;
+  background: var(--antes__depois-text-tertiary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--antes__depois-shadow-lg);
+  transition: var(--antes__depois-transition);
+}
+
+.antes__depois__slider-handle:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+  background: var(--antes__depois-accent-color);
+}
+
+.antes__depois__slider-icon {
+  font-size: 24px;
+  color: var(--antes__depois-primary-color);
+  transition: var(--antes__depois-transition);
+  /* Melhoria de acessibilidade */
+  pointer-events: none;
+}
+
+.antes__depois__slider-handle:hover .antes__depois__slider-icon {
+  color: var(--antes__depois-text-tertiary);
+}
+
+/* Labels "Antes" e "Depois" */
+.antes__depois__label {
+  transition: opacity 0.3s ease-out;
+  position: absolute;
+  top: 1rem;
+  padding: 0.5rem 1rem;
+  background: var(--antes__depois-primary-color);
+  color: var(--antes__depois-text-tertiary);
+  font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+  font-weight: 600;
+  border-radius: 50px;
+  z-index: 5;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.antes__depois__label--antes {
+  left: 1rem;
+}
+
+.antes__depois__label--depois {
+  right: 1rem;
+}
+
+/* ===== CONTEÚDO DO CARD ===== */
+.antes__depois__card-content {
+  padding: clamp(1.5rem, 3vw, 2rem);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex: 1;
+}
+
+/* Título do card */
+.antes__depois__card-title {
+  font-size: clamp(1.25rem, 1.8vw + 0.5rem, 1.5rem);
+  font-weight: 700;
+  color: var(--antes__depois-text-primary);
+  margin: 0;
+  line-height: 1.3;
+  text-align: center;
+}
+
+/* Texto do card */
+.antes__depois__card-text {
+  font-size: var(--antes__depois-text-size);
+  line-height: 1.6;
+  color: var(--antes__depois-text-secondary);
+  margin: 0;
+  text-align: center;
+}
+
+/* ===== CALL TO ACTION FINAL ===== */
+.antes__depois__footer {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding-top: clamp(2rem, 4vw, 3rem);
+}
+
+.antes__depois__cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  background: var(--antes__depois-gradient-accent);
+  color: var(--antes__depois-text-tertiary);
+  border-radius: 50px;
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--antes__depois-transition);
+  cursor: pointer;
+
+  border: none;
+}
+
+.antes__depois__cta-btn:hover {
+  transform: translateY(-2px) scale(1);
+}
+
+.antes__depois__cta-icon {
+  font-size: 1.25em;
+  flex-shrink: 0;
+}
+
+/* ===== ANIMAÇÕES ===== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Aplicar animação aos cards */
+.antes__depois__card {
+  animation: fadeInUp 0.6s ease-out both;
+}
+
+.antes__depois__card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.antes__depois__card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.antes__depois__card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+
+/* Tablets grandes (768px - 991px) */
+@media (max-width: 991px) {
+  .antes__depois__grid {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  }
+  
+  .antes__depois__comparison {
+    height: 350px;
+  }
+}
+
+/* Tablets pequenos e smartphones grandes (576px - 767px) */
+@media (max-width: 767px) {
+  .antes__depois {
+    padding: clamp(3rem, 8vh, 5rem) clamp(1.5rem, 4vw, 2rem);
+  }
+  
+  .antes__depois__grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .antes__depois__comparison {
+    height: 300px;
+  }
+  
+  .antes__depois__slider-handle {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .antes__depois__slider-icon {
+    font-size: 20px;
+  }
+}
+
+/* Smartphones pequenos (320px - 575px) */
+@media (max-width: 575px) {
+  .antes__depois {
+    padding: 2.5rem 1rem;
+  }
+  
+  .antes__depois__header {
+    gap: 1rem;
+  }
+  
+  .antes__depois__card-content {
+    padding: 1.25rem;
+  }
+  
+  .antes__depois__comparison {
+    height: 250px;
+  }
+  
+  .antes__depois__label {
+  transition: opacity 0.3s ease-out;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.75rem;
+  }
+}
+
+/* ===== ACESSIBILIDADE ===== */
+.antes__depois__comparison:focus {
+  outline: 2px solid var(--antes__depois-primary-color);
+  outline-offset: 2px;
+}
+
+/* Reduzir animações para usuários com preferência de movimento reduzido */
+@media (prefers-reduced-motion: reduce) {
+  .antes__depois__card {
+    animation: none;
+  }
+  
+  .antes__depois__card:hover {
+    transform: none;
+  }
+  
+  .antes__depois__slider-handle:hover {
+    transform: translate(-50%, -50%);
+  }
+  
+  .antes__depois__cta-btn:hover {
+    transform: none;
+  }
+}
+

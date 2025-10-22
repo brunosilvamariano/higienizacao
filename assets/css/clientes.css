@@ -1,0 +1,350 @@
+/* ============================================
+   VARIÁVEIS CSS - SEÇÃO DE CLIENTES
+   ============================================ */
+
+:root {
+    /* ---- Tipografia ---- */
+    --clientes-font-family: 'Poppins', sans-serif;
+    --clientes-font-weight-light: 300;
+    --clientes-font-weight-regular: 400;
+    --clientes-font-weight-medium: 500;
+    --clientes-font-weight-semibold: 600;
+    --clientes-font-weight-bold: 700;
+
+    /* ---- Tamanhos de Fonte - Desktop ---- */
+    --clientes-title-size: 2.5rem;
+    --clientes-subtitle-size: 1.125rem;
+    --clientes-logo-height: 60px;
+
+    /* ---- Tamanhos de Fonte - Tablet ---- */
+    --clientes-title-size-tablet: 2rem;
+    --clientes-subtitle-size-tablet: 1rem;
+    --clientes-logo-height-tablet: 50px;
+
+    /* ---- Tamanhos de Fonte - Mobile ---- */
+    --clientes-title-size-mobile: 1.5rem;
+    --clientes-subtitle-size-mobile: 0.875rem;
+    --clientes-logo-height-mobile: 40px;
+
+    /* ---- Tamanhos de Fonte - Small Mobile ---- */
+    --clientes-title-size-small-mobile: 1.25rem;
+    --clientes-subtitle-size-small-mobile: 0.75rem;
+    --clientes-logo-height-small-mobile: 35px;
+
+    /* ---- Cores ---- */
+    --clientes-text-color: #ffffff;
+    --clientes-overlay-bg-color: #2c3e50;
+    --clientes-overlay-opacity: 0.8;
+    --clientes-overlay-opacity-dark: 0.85;
+
+    /* ---- Espaçamento ---- */
+    --clientes-section-height: 400px;
+    --clientes-section-height-tablet: 350px;
+    --clientes-section-height-mobile: 300px;
+    --clientes-section-height-small-mobile: 280px;
+    --clientes-header-margin-bottom: 40px;
+    --clientes-header-margin-bottom-tablet: 30px;
+    --clientes-header-margin-bottom-mobile: 20px;
+    --clientes-header-margin-bottom-small-mobile: 15px;
+    --clientes-logo-margin: 0 40px;
+    --clientes-logo-margin-tablet: 0 30px;
+    --clientes-logo-margin-mobile: 0 20px;
+    --clientes-logo-margin-small-mobile: 0 15px;
+    --clientes-container-padding: 0 20px;
+    --clientes-container-padding-small-mobile: 0 15px;
+
+    /* ---- Animação ---- */
+    --clientes-carousel-duration: 20s;
+    --clientes-carousel-duration-mobile: 15s;
+    --clientes-carousel-duration-small-mobile: 12s;
+    --clientes-carousel-timing: linear;
+    --clientes-logo-hover-scale: 1.1;
+    --clientes-logo-hover-scale-mobile: 1.05;
+    --clientes-transition-duration: 0.3s;
+    --clientes-transition-timing: ease;
+
+    /* ---- Line Height ---- */
+    --clientes-line-height: 1.6;
+    --clientes-title-line-height: 1.2;
+
+    /* ---- Letter Spacing ---- */
+    --clientes-title-letter-spacing: 0.05em;
+    --clientes-subtitle-letter-spacing: 0.02em;
+
+    /* ---- Filtros ---- */
+    --clientes-logo-filter: brightness(0) invert(1);
+
+    /* ---- Z-Index ---- */
+    --clientes-z-video: 1;
+    --clientes-z-overlay: 2;
+    --clientes-z-content: 3;
+}
+
+/* ============================================
+   RESET E ESTILOS GLOBAIS
+   ============================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--clientes-font-family);
+    font-weight: var(--clientes-font-weight-regular);
+    line-height: var(--clientes-line-height);
+    color: var(--clientes-text-color);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    
+}
+
+ul {
+    list-style: none;
+}
+
+/* ============================================
+   SEÇÃO DE CLIENTES - ESTILOS PRINCIPAIS
+   ============================================ */
+
+.clientes-section {
+    position: relative;
+    width: 100%;
+    height: var(--clientes-section-height);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* ---- Vídeo de Fundo ---- */
+.clientes-section__video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: var(--clientes-z-video);
+}
+
+/* ---- Sobreposição de Cor ---- */
+.clientes-section__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--clientes-overlay-bg-color);
+    opacity: var(--clientes-overlay-opacity);
+    z-index: var(--clientes-z-overlay);
+}
+
+/* ---- Container Principal ---- */
+.clientes-section__container {
+    position: relative;
+    z-index: var(--clientes-z-content);
+    width: 100%;
+    padding: var(--clientes-container-padding);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ============================================
+   CABEÇALHO DA SEÇÃO
+   ============================================ */
+
+.clientes-section__header {
+    text-align: center;
+    margin-bottom: var(--clientes-header-margin-bottom);
+    width: 100%;
+}
+
+.clientes-section__title {
+    font-size: var(--clientes-title-size);
+    font-weight: var(--clientes-font-weight-bold);
+    line-height: var(--clientes-title-line-height);
+    letter-spacing: var(--clientes-title-letter-spacing);
+    margin-bottom: 12px;
+    text-transform: none;
+}
+
+.clientes-section__subtitle {
+    font-size: var(--clientes-subtitle-size);
+    font-weight: var(--clientes-font-weight-light);
+    letter-spacing: var(--clientes-subtitle-letter-spacing);
+    opacity: 0.9;
+}
+
+/* ============================================
+   CARROSSEL DE LOGOTIPOS
+   ============================================ */
+
+.clientes-section__carousel {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.clientes-section__logos-list {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    animation: clientes-scroll var(--clientes-carousel-duration) var(--clientes-carousel-timing) infinite;
+}
+
+.clientes-section__logo-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin: var(--clientes-logo-margin);
+}
+
+.clientes-section__logo-item img {
+    height: auto;
+}
+
+.clientes-section__logo-image {
+    height: var(--clientes-logo-height);
+    width: auto;
+    max-width: 150px;
+    filter: var(--clientes-logo-filter);
+    transition: transform var(--clientes-transition-duration) var(--clientes-transition-timing);
+}
+
+.clientes-section__logo-item:hover .clientes-section__logo-image {
+    transform: scale(var(--clientes-logo-hover-scale));
+}
+
+/* ============================================
+   ANIMAÇÃO DO CARROSSEL
+   ============================================ */
+
+@keyframes clientes-scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* ============================================
+   RESPONSIVIDADE - TABLET (768px - 1024px)
+   ============================================ */
+
+@media (max-width: 1024px) {
+    :root {
+        --clientes-title-size: var(--clientes-title-size-tablet);
+        --clientes-subtitle-size: var(--clientes-subtitle-size-tablet);
+        --clientes-logo-height: var(--clientes-logo-height-tablet);
+        --clientes-section-height: var(--clientes-section-height-tablet);
+        --clientes-header-margin-bottom: var(--clientes-header-margin-bottom-tablet);
+        --clientes-logo-margin: var(--clientes-logo-margin-tablet);
+    }
+}
+
+/* ============================================
+   RESPONSIVIDADE - MOBILE (até 768px)
+   ============================================ */
+
+@media (max-width: 768px) {
+    :root {
+        --clientes-title-size: var(--clientes-title-size-mobile);
+        --clientes-subtitle-size: var(--clientes-subtitle-size-mobile);
+        --clientes-logo-height: var(--clientes-logo-height-mobile);
+        --clientes-section-height: var(--clientes-section-height-mobile);
+        --clientes-header-margin-bottom: var(--clientes-header-margin-bottom-mobile);
+        --clientes-logo-margin: var(--clientes-logo-margin-mobile);
+        --clientes-carousel-duration: var(--clientes-carousel-duration-mobile);
+        --clientes-logo-hover-scale: var(--clientes-logo-hover-scale-mobile);
+    }
+}
+
+/* ============================================
+   RESPONSIVIDADE - SMALL MOBILE (até 480px)
+   ============================================ */
+
+@media (max-width: 480px) {
+    :root {
+        --clientes-title-size: var(--clientes-title-size-small-mobile);
+        --clientes-subtitle-size: var(--clientes-subtitle-size-small-mobile);
+        --clientes-logo-height: var(--clientes-logo-height-small-mobile);
+        --clientes-section-height: var(--clientes-section-height-small-mobile);
+        --clientes-header-margin-bottom: var(--clientes-header-margin-bottom-small-mobile);
+        --clientes-logo-margin: var(--clientes-logo-margin-small-mobile);
+        --clientes-container-padding: var(--clientes-container-padding-small-mobile);
+        --clientes-carousel-duration: var(--clientes-carousel-duration-small-mobile);
+    }
+
+    .clientes-section__subtitle {
+        opacity: 0.85;
+    }
+}
+
+/* ============================================
+   ACESSIBILIDADE - PREFERS REDUCED MOTION
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+    .clientes-section__logos-list {
+        animation: none;
+        transform: translateX(0);
+    }
+
+    .clientes-section__logo-image {
+        transition: none;
+    }
+}
+
+/* ============================================
+   ACESSIBILIDADE - DARK MODE
+   ============================================ */
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --clientes-overlay-opacity: var(--clientes-overlay-opacity-dark);
+    }
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+
+@media print {
+    .clientes-section__video-background {
+        display: none;
+    }
+
+    .clientes-section__overlay {
+        background-color: #333;
+        opacity: 1;
+    }
+
+    .clientes-section__logos-list {
+        animation: none;
+    }
+}
+
+/* ============================================
+   FOCUS STATES PARA ACESSIBILIDADE
+   ============================================ */
+
+.clientes-section__logo-image:focus-visible {
+    outline: 2px solid rgba(255, 255, 255, 0.5);
+    outline-offset: 2px;
+    border-radius: 4px;
+}

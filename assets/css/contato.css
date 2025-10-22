@@ -1,0 +1,113 @@
+/* Seção de Contato */
+:root {
+    --contato-bg: url(/assets/img/cta__contato/contato_background.jpg);
+    --contato-overlay-color: rgba(20, 20, 30, 0.8);
+    --contato-text-color: #ffffff;
+    --contato-primary-color: #f39c12;
+    --contato-button-bg: transparent;
+    --contato-button-border: #ffffff;
+    --contato-button-hover-bg: #ffffff;
+    --contato-button-hover-color: #14141e;
+}
+
+.contato {
+    position: relative;
+    background-image: var(--contato-bg);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 100px 20px;
+    text-align: center;
+    color: var(--contato-text-color);
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+}
+
+.contato__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--contato-overlay-color);
+    z-index: 1;
+}
+
+.contato__conteudo {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.contato__subtitulo {
+     display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--faq-spacing-xs);
+    color: var(--faq-accent-color);
+    padding: var(--faq-spacing-xs) var(--faq-spacing-md);
+    border-radius: var(--faq-border-radius-full);
+    font-style: italic;
+    font-size: 0.875rem;
+    font-weight: var(--faq-font-weight-semibold);
+    text-transform: uppercase;
+}
+
+.contato__subtitulo::before,
+.contato__subtitulo::after {
+    content: "";
+    display: block;
+    width: clamp(20px, 4vw, 40px); /* tamanho das linhas */
+    height: 2px;
+    background-color: var(--faq-accent-color); /* mesma cor do texto */
+    border-radius: 2px;
+}
+.contato__titulo {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.contato__descricao {
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contato__botao {
+    display: inline-block;
+    padding: 15px 35px;
+    border: 2px solid var(--contato-button-border);
+    border-radius: 50px;
+    color: var(--contato-text-color);
+    background-color: var(--contato-button-bg);
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.contato__botao:hover {
+    background-color: var(--contato-button-hover-bg);
+    color: var(--contato-button-hover-color);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .contato {
+        background-attachment: scroll; /* Desativa o parallax em dispositivos móveis para melhor performance */
+    }
+
+    .contato__titulo {
+        font-size: 2rem;
+    }
+
+    .contato__descricao {
+        font-size: 1rem;
+    }
+}
+
