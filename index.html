@@ -1536,6 +1536,33 @@
         </div>
     </footer>
 
+    <!-- ===== CHATBOT WHATSAPP FIXO ===== -->
+    <div id="chatbot-container" class="chatbot-container" role="dialog" aria-modal="false" aria-label="Chatbot de Atendimento">
+        <header class="chatbot-header">
+            <h4>Assistente Virtual - Higienização</h4>
+            <button id="chatbot-close-btn" class="chatbot-close-btn" aria-label="Fechar Chatbot">
+                <i class="bi bi-x-lg"></i>
+            </button>
+        </header>
+        <div id="chatbot-body" class="chatbot-body">
+            <!-- Mensagens e opções serão inseridas aqui -->
+        </div>
+        <footer class="chatbot-footer">
+            <input type="text" id="chatbot-input" class="chatbot-input" placeholder="Digite sua mensagem..." aria-label="Campo de mensagem do Chatbot">
+            <button id="chatbot-send-btn" class="chatbot-send-btn" aria-label="Enviar Mensagem">
+                <i class="bi bi-send-fill"></i>
+            </button>
+        </footer>
+    </div>
+
+    <!-- Botão Fixo de WhatsApp para abrir/fechar o Chatbot -->
+    <button id="whatsapp-fixed-button" class="whatsapp-fixed-button" aria-label="Abrir Chatbot WhatsApp">
+        <div class="whatsapp-fixed-button__content">
+            <img src="/assets/img/cta__contato/atendente.jpg" alt="Assistente Virtual" class="whatsapp-fixed-button__image">
+            <span class="whatsapp-fixed-button__text">Vamos conversar?</span>
+        </div>
+    </button>
+
     <!-- Bootstrap JS com Fallback -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
             integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" 
@@ -1556,6 +1583,7 @@
     <script src="./assets/js/testemunhas_refactored.js"></script>
     <script src="./assets/js/faq.js"></script>
     <script src="./assets/js/footer.js"></script>
+    <script src="./assets/js/chatbot.js"></script>
   
 
     </body>

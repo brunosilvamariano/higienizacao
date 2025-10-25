@@ -1,0 +1,263 @@
+/* ===================================
+   ESTILOS DO BOTÃO FLUTUANTE E CHATBOT WHATSAPP
+   =================================== */
+
+/* Variáveis de estilo baseadas no header.css */
+:root {
+    --chat-primary: #25D366; /* Cor principal do WhatsApp */
+    --chat-primary-dark: #128C7E;
+    --chat-gradient: linear-gradient(135deg, var(--chat-primary-dark) 0%, var(--chat-primary) 100%);
+    --chat-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    --chat-shadow-hover: 0 8px 20px rgba(0, 0, 0, 0.3);
+    --chat-text-color: var(--gray-100, #fff); /* Usando a variável do header ou fallback */
+    --chat-bg-color: var(--gray-100, #fff);
+    --chat-border-radius: 12px;
+    --chat-transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 1. Botão Flutuante Principal (Modificado para Imagem e Texto) */
+.whatsapp-fixed-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1050;
+    /* Estilos iniciais do botão */
+    width: 200px; /* Largura maior para o texto */
+    height: 60px;
+    background: var(--chat-gradient);
+    border-radius: 30px; /* Metade da altura para ser oval */
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Alinhar conteúdo à esquerda */
+    cursor: pointer;
+    box-shadow: var(--chat-shadow);
+    transition: all var(--chat-transition);
+    border: none;
+    padding: 0;
+    overflow: hidden; /* Para esconder o texto quando fechado em mobile */
+}
+
+.whatsapp-fixed-button:hover {
+    box-shadow: var(--chat-shadow-hover);
+    transform: scale(1.05);
+}
+
+.whatsapp-fixed-button__content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 0 10px;
+}
+
+.whatsapp-fixed-button__image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--chat-text-color);
+    flex-shrink: 0;
+    margin-right: 10px;
+}
+
+.whatsapp-fixed-button__text {
+    color: var(--chat-text-color);
+    font-size: 16px;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* 2. Chatbot Container (Janela) */
+.chatbot-container {
+    position: fixed;
+    bottom: 90px; /* Acima do botão */
+    right: 20px;
+    z-index: 1050;
+    width: 350px;
+    height: 450px;
+    background-color: var(--chat-bg-color);
+    border-radius: var(--chat-border-radius);
+    box-shadow: var(--chat-shadow-hover);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transform: scale(0.8);
+    opacity: 0;
+    pointer-events: none;
+    transition: all var(--chat-transition);
+}
+
+.chatbot-container.open {
+    transform: scale(1);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* 3. Cabeçalho do Chatbot */
+.chatbot-header {
+    background: var(--chat-gradient);
+    color: var(--chat-text-color);
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.chatbot-header h4 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.chatbot-close-btn {
+    background: none;
+    border: none;
+    color: var(--chat-text-color);
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity var(--chat-transition);
+}
+
+.chatbot-close-btn:hover {
+    opacity: 1;
+}
+
+/* 4. Corpo da Conversa */
+.chatbot-body {
+    flex-grow: 1;
+    padding: 15px;
+    overflow-y: auto;
+    background-color: #f7f9fc; /* Fundo suave */
+}
+
+/* Estilos das mensagens */
+.message {
+    margin-bottom: 10px;
+    display: flex;
+}
+
+.message.bot {
+    justify-content: flex-start;
+}
+
+.message.user {
+    justify-content: flex-end;
+}
+
+.message-bubble {
+    max-width: 80%;
+    padding: 10px 15px;
+    border-radius: 18px;
+    font-size: 14px;
+    line-height: 1.4;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.message.bot .message-bubble {
+    background-color: var(--chat-primary-dark);
+    color: var(--chat-text-color);
+    border-bottom-left-radius: 2px;
+}
+
+.message.user .message-bubble {
+    background-color: #e0e0e0;
+    color: #333;
+    border-bottom-right-radius: 2px;
+}
+
+/* Estilos para as opções/botões */
+.options-container {
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.option-button {
+    background-color: var(--chat-primary);
+    color: var(--chat-text-color);
+    border: none;
+    padding: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background-color 0.2s;
+    text-align: left;
+}
+
+.option-button:hover {
+    background-color: var(--chat-primary-dark);
+}
+
+/* 5. Rodapé/Input do Chatbot */
+.chatbot-footer {
+    padding: 10px 15px;
+    border-top: 1px solid #eee;
+    display: flex;
+    gap: 10px;
+}
+
+.chatbot-input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    font-size: 14px;
+    outline: none;
+}
+
+.chatbot-send-btn {
+    background: var(--chat-primary);
+    color: var(--chat-text-color);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.chatbot-send-btn:hover {
+    background-color: var(--chat-primary-dark);
+}
+
+.chatbot-send-btn i {
+    font-size: 18px;
+}
+
+/* Responsividade */
+@media (max-width: 480px) {
+    .chatbot-container {
+        width: 90%;
+        height: 70vh;
+        right: 5%;
+        bottom: 80px;
+    }
+    .whatsapp-fixed-button {
+        width: 60px; /* Volta para o tamanho do ícone */
+        height: 60px;
+        bottom: 15px;
+        right: 15px;
+        border-radius: 50%;
+        justify-content: center;
+    }
+    .whatsapp-fixed-button__content {
+        justify-content: center;
+        padding: 0;
+    }
+    .whatsapp-fixed-button__text {
+        display: none; /* Esconde o texto em mobile */
+    }
+    .whatsapp-fixed-button__image {
+        width: 40px;
+        height: 40px;
+        margin-right: 0;
+    }
+}
