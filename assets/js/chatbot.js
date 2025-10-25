@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ]
         },
         UNHANDLED: {
-            text: "Desculpe, não entendi sua pergunta. Posso te ajudar com uma das opções abaixo?",
+            text: "Desculpe, estou em processo de desenvolvimento. Posso te ajudar com uma das opções abaixo?",
             options: [
                 { text: "Serviços", value: "SERVICOS" },
                 { text: "Processo", value: "PROCESSO" },
